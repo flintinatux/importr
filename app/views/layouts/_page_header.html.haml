@@ -1,0 +1,9 @@
+- provide :title, (defined? small_title) ? "#{title} #{small_title}" : title
+.page-header
+  - if block_given?
+    .pull-right
+      = yield
+  %h1
+    = title
+    %small= small_title if defined? small_title
+= render 'shared/flash_messages'

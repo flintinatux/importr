@@ -1,0 +1,103 @@
+@import "bootstrap";
+
+/* mixins, variables, etc. */
+
+$grayMediumLight: #eaeaea;
+
+@mixin box_sizing {
+  -moz-box-sizing: border-box; 
+  -webkit-box-sizing: border-box; 
+  box-sizing: border-box;
+}
+
+/* header */
+
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: $grayDarker;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+  line-height: 1;
+  &:hover {
+    color: $grayDarker;
+    text-decoration: none;
+  }
+}
+
+/* footer */
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid $grayMediumLight;
+  color: $grayLight;
+  a {
+    color: $gray;
+    &:hover { 
+      color: $grayDarker;
+    }
+  }
+  small {
+    float: left;
+  }
+  ul {
+    float: right;
+    list-style: none;
+    li {
+      float: left;
+      margin-left: 10px;
+    }
+  }
+}
+
+/* page header */
+
+.page-header {
+  h1 {
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .pull-right {
+    padding-left: 20px;
+
+    form {
+      display: inline; 
+      margin-right: 20px;
+
+      select {
+        padding: 4px;
+      }
+    }
+  }
+}
+
+/* tables */
+
+table {
+  tr[data-link]:hover {
+    cursor: pointer;
+  }
+}
+
+/* miscellaneous */
+
+.center {
+  text-align: center !important;
+}
+
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
+}
+
+.inline {
+  display: inline;
+}
