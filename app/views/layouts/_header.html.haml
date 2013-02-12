@@ -10,7 +10,7 @@
             = link_to root_path do
               %i.icon-home
               Home
-          - if false # signed_in?
+          - if signed_in?
             %li.dropdown
               %a.dropdown-toggle(href="#" data-toggle="dropdown")
                 %i.icon-user
@@ -26,7 +26,7 @@
                   = link_to signout_path, data: { 'skip-pjax' => true } do
                     %i.icon-off
                     Sign out
-          - if false # else
+          - else
             %li
               = link_to signin_path do
                 %i.icon-off

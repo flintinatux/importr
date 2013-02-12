@@ -1,0 +1,6 @@
+= render 'layouts/page_header', title: 'Account settings'
+
+= render 'user_form', submit_text: 'Save changes', disable_text: 'Saving...'
+
+= gravatar_for @user
+= link_to "change", "http://gravatar.com/emails"

@@ -12,6 +12,8 @@ gem 'bootstrap-sass', '~> 2.2.2'
 gem 'bootstrap-will_paginate', '~> 0.0.9'
 gem 'haml', '~> 3.1.7'
 gem 'jquery-rails', '~> 2.2.1'
+gem 'jquery-turbolinks', '~> 0.2.1'
+gem 'turbolinks', '~> 1.0.0'
 gem 'will_paginate', '~> 3.0.4'
 
 group :assets do

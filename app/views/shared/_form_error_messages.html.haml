@@ -1,0 +1,4 @@
+- if object.errors.any?
+  .alert.alert-error.fade.in
+    %a(href="#" class="close" data-dismiss="alert") &times;
+    = "Please fix the #{pluralize object.errors.keys.size, 'error'} below."

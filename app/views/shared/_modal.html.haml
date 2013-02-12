@@ -1,0 +1,8 @@
+.modal.hide{ id: modal_label, tabindex: '-1', 'aria-hidden' => true, 'aria-labelledby' => modal_label }
+  .modal-header
+    %button.close{ 'aria-hidden' => true, data: { dismiss: :modal } } &times;
+    %h3{ id: modal_label }= modal_label.titleize
+  .modal-body
+    = yield
+  .modal-footer
+    %button.btn.btn-primary{ 'aria-hidden' => true, data: { dismiss: :modal } } Close
