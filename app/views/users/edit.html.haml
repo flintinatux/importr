@@ -2,5 +2,11 @@
 
 = render 'user_form', submit_text: 'Save changes', disable_text: 'Saving...'
 
-= gravatar_for @user
-= link_to "change", "http://gravatar.com/emails"
+%form.form-horizontal#gravatar
+  .row
+    .offset2
+      .control-group
+        %label.control-label Gravatar image
+        .controls
+          = gravatar_for @user
+          = link_to "change", "http://gravatar.com/emails"

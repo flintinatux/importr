@@ -1,4 +1,4 @@
-= form_for @user, html: { class: 'form-horizontal', data: { 'skip-pjax' => true } } do |f|
+= form_for @user, html: { class: 'form-horizontal', id: :user, data: { 'skip-pjax' => true } } do |f|
   = render 'shared/form_error_messages', object: @user
   .row
     .offset2

@@ -4,11 +4,19 @@
 
 /* Sign up form */
 
-form#new_user {
+form#user {
   display: block;
   margin-bottom: 20px;
 
   .field_with_errors{
     display: inline;
+  }
+}
+
+form#gravatar {
+  .controls {
+    img.gravatar {
+      display: block;
+    }
   }
 }
