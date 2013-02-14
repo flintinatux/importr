@@ -29,6 +29,7 @@ describe User do
   it { should respond_to :password_confirmation }
   it { should respond_to :remember_token }
   it { should respond_to :authenticate }
+  it { should respond_to :transactions }
 
   it { should be_valid }
 
@@ -127,5 +128,23 @@ describe User do
   describe "remember_token" do
     before { @user.save }
     its(:remember_token) { should_not be_blank }
+  end
+
+  describe "transaction associations" do
+    before { @user.save }
+    let!(:older_transaction)  { FactoryGirl.create :transaction, user: @user, date: 1.day.ago  }
+    let!(:recent_transaction) { FactoryGirl.create :transaction, user: @user, date: 1.hour.ago }
+
+    it "orders transactions by date" do
+      @user.transactions.should eq [recent_transaction, older_transaction]
+    end
+
+    it "destroys associated transactions" do
+      transactions = @user.transactions
+      @user.destroy
+      transactions.each do |transaction|
+        Transaction.find(transaction.id).should be_nil
+      end
+    end
   end
 end

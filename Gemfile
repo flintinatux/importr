@@ -4,6 +4,7 @@ gem 'rails', '3.2.12'
 
 # Backend
 gem 'bcrypt-ruby', '~> 3.0.1'
+gem 'money-rails', git: 'git://github.com/RubyMoney/money-rails.git'
 gem 'pg', '~> 0.14.1'
 
 # Frontend
@@ -38,7 +39,7 @@ group :test do
   gem 'factory_girl_rails', '~> 4.2.1'
   gem 'guard-spork', '~> 1.4.2'
   gem 'libnotify', '~> 0.8.0'
-  gem 'rb-inotify', '~> 0.9.0'
+  gem 'rb-inotify', '~> 0.8.8'
   gem 'spork', '~> 0.9.2'
   gem 'database_cleaner', '~> 0.9.1'
 end
