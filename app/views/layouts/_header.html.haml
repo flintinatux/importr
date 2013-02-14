@@ -11,6 +11,10 @@
               %i.icon-home
               Home
           - if signed_in?
+            %li
+              = link_to user_transactions_path(current_user) do
+                %i.icon-list
+                Transactions
             %li.dropdown
               %a.dropdown-toggle(href="#" data-toggle="dropdown")
                 %i.icon-user

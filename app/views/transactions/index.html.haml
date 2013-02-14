@@ -1,2 +1,16 @@
-%h1 Transactions#index
-%p Find me in app/views/transactions/index.html.haml
+= render layout: 'layouts/page_header', locals: { title: 'Transactions', small_title: "for #{@user.name}" } do
+  = link_to root_path, class: "btn btn-large" do
+    %i.icon-arrow-left
+    Back to dashboard
+
+- if current_user?(@user)
+  = form_for @transaction, url: user_transactions_path(@user), html: { id: :transaction, class: 'form-inline' } do |f|
+    = render 'shared/form_error_messages', object: @transaction
+    .controls.controls-row
+      = f.text_field :date, value: @transaction.date, placeholder: 'Date', class: 'span2', data: { behavior: :datepicker }
+      = f.text_field :description, placeholder: 'Description', class: 'span4'
+      %select.span2
+        %option Income
+        %option Expense
+      = f.text_field :amount, class: 'span2'
+      = f.submit 'New transaction', class: 'btn btn-primary span2', data: { 'disable-with' => 'Creating...' }

@@ -1,0 +1,31 @@
+= form_for @transaction, url: user_transactions_path(@user), html: { id: :transaction, class: 'form-horizontal' } do |f|
+  = render 'shared/form_error_messages', object: @transaction
+  .control-group
+    = f.label :date, 'Date', class: 'control-label'
+    .controls
+      .input-prepend
+        %span.add-on
+          %i.icon-calendar
+        = f.text_field :date, value: @transaction.date, placeholder: 'Date', class: 'input-small', data: { behavior: :datepicker }
+      = render 'shared/field_error_message', object: @transaction, field: :date
+  .control-group
+    = f.label :type, 'Type', class: 'control-label'
+    .controls
+      %select.span2
+        %option Income
+        %option Expense
+  .control-group
+    = f.label :amount, 'Amount', class: 'control-label'
+    .controls
+      .input-prepend
+        %span.add-on $
+        = f.text_field :amount, class: 'input-small'
+      = render 'shared/field_error_message', object: @transaction, field: :amount
+  .control-group
+    = f.label :description, 'Description', class: 'control-label'
+    .controls
+      = f.text_field :description, placeholder: 'Description', class: 'input-xlarge'
+      = render 'shared/field_error_message', object: @transaction, field: :description
+  .control-group
+    .controls
+      = f.submit submit_text, class: 'btn btn-primary', data: { 'disable-with' => disable_text }

@@ -1,54 +1,39 @@
 require 'spec_helper'
 
 describe TransactionsController do
+  let(:user) { FactoryGirl.create :user }
+  before { controller_sign_in user }
 
   describe "GET 'index'" do
-    it "returns http success" do
-      get 'index'
-      response.should be_success
-    end
+    
   end
 
   describe "GET 'show'" do
-    it "returns http success" do
-      get 'show'
-      response.should be_success
-    end
+    
   end
 
-  describe "GET 'new'" do
-    it "returns http success" do
-      get 'new'
-      response.should be_success
+  describe 'GET #new' do
+    before { get :new, user_id: user }
+
+    it "builds a transaction for the user" do
+      assigns(:transaction).user.should eq user
     end
   end
 
   describe "GET 'create'" do
-    it "returns http success" do
-      get 'create'
-      response.should be_success
-    end
+    
   end
 
   describe "GET 'edit'" do
-    it "returns http success" do
-      get 'edit'
-      response.should be_success
-    end
+    
   end
 
   describe "GET 'update'" do
-    it "returns http success" do
-      get 'update'
-      response.should be_success
-    end
+    
   end
 
   describe "GET 'destroy'" do
-    it "returns http success" do
-      get 'destroy'
-      response.should be_success
-    end
+    
   end
 
 end
