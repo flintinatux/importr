@@ -1,8 +1,10 @@
 Importr::Application.routes.draw do
   root to: 'pages#home'
 
-  resources :users,     only: [:new, :create, :edit, :update]
-  resources :sessions,  only: [:new, :create, :destroy]
+  resources :sessions, only: [:new, :create, :destroy]
+  resources :users, only: [:new, :create, :edit, :update] do
+    resources :transactions
+  end
 
   match '/signup',  to: 'users#new'
   match '/signin',  to: 'sessions#new'
