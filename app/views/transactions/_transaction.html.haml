@@ -1,7 +1,7 @@
-- edit_path = edit_user_transaction_path(@user, transaction)
+- edit_path = edit_transaction_path(transaction)
 - row_data = current_user?(@user) ? { link: edit_path } : {}
 %tr{ data: row_data }
   %td= current_user?(@user) ? link_to(transaction.id, edit_path) : transaction.id
-  %td= transaction.date
-  %td.description{ title: transaction.description }= transaction.description
-  %td.text-right= transaction.amount
+  %td.center= transaction.date
+  %td.description{ title: transaction.description }= truncate transaction.description, 80
+  %td.right= transaction.amount
