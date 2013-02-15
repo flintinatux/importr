@@ -1,0 +1,9 @@
+<% if flash.any? %>
+  $('#flash_messages').html("<%= escape_javascript render('shared/flash_messages') %>")
+<% end %>
+
+$('#new_transaction_form').html("<%= escape_javascript render('transaction_form') %>")
+
+<% if @transactions %>
+  $('#transactions_table').html("<%= escape_javascript render('transactions_table') %>")
+<% end %>

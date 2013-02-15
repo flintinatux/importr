@@ -7,9 +7,16 @@ FactoryGirl.define do
   end
 
   factory :transaction do
-    sequence(:date)   { |n| Date.today + n * 1.day }
+    sequence(:date)   { |n| n.days.from_now }
     sequence(:amount) { |n| n.to_f }
     description 'This is just a transaction.'
+    user
+  end
+
+  factory :invalid_transaction do
+    date          nil
+    description   'a' * 256
+    amount        0.00
     user
   end
 end

@@ -3,8 +3,9 @@ Importr::Application.routes.draw do
 
   resources :sessions, only: [:new, :create, :destroy]
   resources :users, only: [:new, :create, :edit, :update] do
-    resources :transactions
+    resources :transactions, only: [:index]
   end
+  resources :transactions, except: [:new, :show]
 
   match '/signup',  to: 'users#new'
   match '/signin',  to: 'sessions#new'

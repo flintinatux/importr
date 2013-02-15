@@ -4,13 +4,17 @@
     Back to dashboard
 
 - if current_user?(@user)
-  = form_for @transaction, url: user_transactions_path(@user), html: { id: :transaction, class: 'form-inline' } do |f|
-    = render 'shared/form_error_messages', object: @transaction
-    .controls.controls-row
-      = f.text_field :date, value: @transaction.date, placeholder: 'Date', class: 'span2', data: { behavior: :datepicker }
-      = f.text_field :description, placeholder: 'Description', class: 'span4'
-      %select.span2
-        %option Income
-        %option Expense
-      = f.text_field :amount, class: 'span2'
-      = f.submit 'New transaction', class: 'btn btn-primary span2', data: { 'disable-with' => 'Creating...' }
+  #new_transaction_form
+    = render 'transaction_form'
+
+#transactions_table
+  - if @transactions.any?
+    = render 'transactions_table'
+  - else
+    .center
+      %h2 Whoops!
+      - if current_user?(@user)
+        %p It looks like you don't have any transactions yet.
+        %p Complete the form above and click the "New transaction" button to create your first transaction and get started!
+      - else
+        %p= "It looks like #{@user.name} doesn't have any transactions yet."

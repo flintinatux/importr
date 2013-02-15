@@ -1,0 +1,11 @@
+%table#transactions.table.table-hover.table-striped
+  %thead
+    %tr
+      %th ID
+      %th Date
+      %th Description
+      %th.text-right Amount
+  %tbody
+    = render @transactions
+.pull-right
+  = will_paginate
