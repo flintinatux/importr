@@ -1,8 +1,2 @@
-<% if flash.any? %>
-  $('#flash_messages').html("<%= escape_javascript render('shared/flash_messages') %>")
-<% end %>
-
-<% if @transactions %>
-  $('#edit_transaction').modal('hide')
-  $('#transactions_table').html("<%= escape_javascript render('transactions_table') %>")
-<% end %>
+$('#edit_transaction').modal('hide')
+Turbolinks.visit("<%= user_transactions_path(current_user) %>")
