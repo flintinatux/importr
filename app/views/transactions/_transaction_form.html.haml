@@ -2,9 +2,9 @@
   = render 'shared/form_error_messages', object: @transaction
   .row.controls.controls-row
     .control-group.span2
-      = f.text_field :date, value: @transaction.date, placeholder: 'Date', class: 'span2', data: { behavior: :datepicker }
+      = f.text_field :date, value: @transaction.date, placeholder: 'Date (required)', class: 'span2', data: { behavior: :datepicker }
     .control-group.span4
-      = f.text_field :description, placeholder: 'Description', class: 'span4'
+      = f.text_field :description, placeholder: 'Description (required)', class: 'span4'
     .control-group.span2
       %select.span2
         %option Income

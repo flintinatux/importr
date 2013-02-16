@@ -18,3 +18,6 @@
         %p Complete the form above and click the "New transaction" button to create your first transaction and get started!
       - else
         %p= "It looks like #{@user.name} doesn't have any transactions yet."
+        %p Better tell them to put it in gear and make some money!
+
+= render 'edit_transaction_modal'

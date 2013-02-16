@@ -78,7 +78,7 @@ footer {
 /* tables */
 
 table {
-  tr[data-link]:hover {
+  tr[href]:hover {
     cursor: pointer;
   }
 }

@@ -13,3 +13,15 @@ form#transaction {
     }
   }
 }
+
+form#edit_transaction {
+  margin: 0 0 -10px;
+
+  input#transaction_amount {
+    text-align: right;
+  }
+
+  input#transaction_description {
+    width: 516px;
+  }
+}

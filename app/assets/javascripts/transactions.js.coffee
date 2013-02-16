@@ -10,3 +10,7 @@ $(document).on 'focus', "[data-behavior='datepicker']", (e) ->
       'todayHighlight': true,
       'weekStart': 0
     }
+
+# Edit transaction when selected
+$(document).on 'click', 'tr[href]', (e) ->
+  $.rails.handleRemote $(this)

@@ -25,6 +25,13 @@ class TransactionsController < ApplicationController
   end
 
   def update
+    if @transaction.update_attributes params[:transaction]
+      flash[:success] = "Transaction ##{@transaction.id} updated."
+      load_paginated_transactions
+    end
+    respond_to do |format|
+      format.js
+    end
   end
 
   def destroy

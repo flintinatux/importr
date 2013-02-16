@@ -18,10 +18,10 @@ class Transaction < ActiveRecord::Base
 
   monetize :amount_cents
 
-  validates_presence_of :date
-  validates_presence_of :user
+  validates_presence_of :date, :user
 
-  validates :description, length: { maximum: 255 }
+  validates :amount, exclusion: { in: [0.00], message: "Amount cannot be zero." }
+  validates :description, presence: true, length: { maximum: 255 }
 
   default_scope order: 'date desc'
 end

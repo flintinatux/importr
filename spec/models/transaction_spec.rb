@@ -34,22 +34,32 @@ describe Transaction do
   it { should respond_to :user }
   its(:user) { should == user }
 
-  it "validates presence of date" do
-    @transaction.date = ' '
-    @transaction.should_not be_valid
+  context "without a date" do
+    before { @transaction.date = ' ' }
+    it { should_not be_valid }
   end
 
   it "monetizes the amount" do
     monetize(:amount_cents).should be_true
   end
 
-  it "belongs to a user" do
-    @transaction.user = nil
-    @transaction.should_not be_valid
+  context "when amount is zero" do
+    before { @transaction.amount = 0 }
+    it { should_not be_valid }
   end
 
-  it "validates length of description to be <255 chars" do
-    @transaction.description = 'a' * 256
-    @transaction.should_not be_valid
+  context "without a user" do
+    before { @transaction.user = nil }
+    it { should_not be_valid }
+  end
+
+  context "without a description" do
+    before { @transaction.description = ' ' }
+    it { should_not be_valid }
+  end
+
+  context "with a description >255 chars" do
+    before { @transaction.description = 'a' * 256 }
+    it { should_not be_valid }
   end
 end

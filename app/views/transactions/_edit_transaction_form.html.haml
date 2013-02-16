@@ -1,0 +1,19 @@
+= form_for @transaction, remote: true, html: { id: :edit_transaction, class: 'form-inline' } do |f|
+  = render 'shared/form_error_messages', object: @transaction
+  .row.controls.controls-row
+    .control-group.span2
+      = f.text_field :date, value: @transaction.date, placeholder: 'Date (required)', class: 'span2', data: { behavior: :datepicker }
+    .pull-right
+      .control-group.span2
+        %select.span2
+          %option Income
+          %option Expense
+      .control-group.span2
+        = f.text_field :amount, class: 'span2'
+  .control-group
+    = f.text_field :description, placeholder: 'Description (required)'
+  .control-group
+    %button#delete_transaction.btn.btn-danger Delete
+    .pull-right
+      %button.btn{ 'aria-hidden' => true, data: { dismiss: :modal } } Cancel
+      = f.submit 'Save', class: 'btn btn-primary', 'aria-hidden' => true, data: { 'disable-with' => 'Saving...' }  
