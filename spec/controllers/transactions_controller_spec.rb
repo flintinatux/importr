@@ -48,12 +48,38 @@ describe TransactionsController do
     end
   end
 
-  describe "GET 'update'" do
-    
-  end
+  context "with an existing transaction" do
+    let!(:transaction) { FactoryGirl.create :transaction, user: user }
 
-  describe "GET 'destroy'" do
-    
-  end
+    describe 'GET #edit' do
+      before do
+        get :edit, id: transaction, format: :js
+      end
 
+      it "finds the transaction" do
+        assigns(:transaction).should eq transaction
+      end
+    end
+
+    describe 'PUT #update' do
+      let(:new_amount)  { 1234.56 }
+      before do
+        put :update, id: transaction, transaction: FactoryGirl.attributes_for(:transaction, amount: new_amount)
+      end
+
+      it "find the transaction" do
+        assigns(:transaction).should eq transaction
+      end
+
+      it "updates the transaction" do
+        Transaction.find(transaction.id).amount.should eq new_amount
+      end
+    end
+
+    describe 'DELETE #destroy' do
+      it "deletes the transaction" do
+        expect{ delete :destroy, id: transaction, format: :js }.to change(Transaction, :count).by(-1)
+      end
+    end
+  end
 end

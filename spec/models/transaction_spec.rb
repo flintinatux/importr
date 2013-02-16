@@ -4,6 +4,7 @@
 #
 #  id              :integer          not null, primary key
 #  date            :date             not null
+#  kind            :string(255)      not null
 #  amount_cents    :integer          default(0), not null
 #  amount_currency :string(255)      default("USD"), not null
 #  description     :string(255)
@@ -29,6 +30,7 @@ describe Transaction do
   subject { @transaction }
 
   it { should respond_to :date }
+  it { should respond_to :kind }
   it { should respond_to :amount }
   it { should respond_to :description }
   it { should respond_to :user }
@@ -36,6 +38,11 @@ describe Transaction do
 
   context "without a date" do
     before { @transaction.date = ' ' }
+    it { should_not be_valid }
+  end
+
+  context "when kind is invalid" do
+    before { @transaction.kind = 'payment' }
     it { should_not be_valid }
   end
 
@@ -61,5 +68,19 @@ describe Transaction do
   context "with a description >255 chars" do
     before { @transaction.description = 'a' * 256 }
     it { should_not be_valid }
+  end
+
+  it "saves an income as positive" do
+    @transaction.kind = 'income'
+    @transaction.amount = -10.00
+    @transaction.save 
+    @transaction.reload.amount.should > 0
+  end
+
+  it "saves an expense as negative" do
+    @transaction.kind = 'expense'
+    @transaction.amount = 10.00
+    @transaction.save 
+    @transaction.reload.amount.should < 0
   end
 end

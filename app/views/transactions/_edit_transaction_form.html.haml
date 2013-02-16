@@ -2,18 +2,16 @@
   = render 'shared/form_error_messages', object: @transaction
   .row.controls.controls-row
     .control-group.span2
-      = f.text_field :date, value: @transaction.date, placeholder: 'Date (required)', class: 'span2', data: { behavior: :datepicker }
+      = f.text_field :date, placeholder: 'Date (required)', class: 'span2', data: { behavior: :datepicker }
     .pull-right
       .control-group.span2
-        %select.span2
-          %option Income
-          %option Expense
+        = f.select :kind, options_from_collection_for_select(Transaction::VALID_KINDS, 'to_s', 'titlecase', @transaction.kind), {}, class: 'span2'
       .control-group.span2
-        = f.text_field :amount, class: 'span2'
+        = f.text_field :amount, value: @transaction.amount.abs, class: 'span2'
   .control-group
     = f.text_field :description, placeholder: 'Description (required)'
   .control-group
-    %button#delete_transaction.btn.btn-danger Delete
+    = link_to 'Delete', @transaction, method: :delete, remote: true, confirm: "Are you sure you want to delete transaction ##{@transaction.id}?", class: 'btn btn-danger'
     .pull-right
       %button.btn{ 'aria-hidden' => true, data: { dismiss: :modal } } Cancel
-      = f.submit 'Save', class: 'btn btn-primary', 'aria-hidden' => true, data: { 'disable-with' => 'Saving...' }  
+      = f.submit 'Update', class: 'btn btn-primary', 'aria-hidden' => true, data: { 'disable-with' => 'Updating...' }  

@@ -3,4 +3,4 @@
   %td= current_user?(@user) ? link_to(transaction.id, edit_path, remote: true) : transaction.id
   %td.center= transaction.date
   %td.description{ title: transaction.description }= truncate transaction.description, 80
-  %td.right= transaction.amount
+  %td{ class: "right #{transaction.kind}" }= transaction.amount

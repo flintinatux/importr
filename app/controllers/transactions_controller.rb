@@ -35,6 +35,12 @@ class TransactionsController < ApplicationController
   end
 
   def destroy
+    @transaction.destroy
+    flash[:success] = "Transaction ##{@transaction.id} has been deleted successfully."
+    load_paginated_transactions
+    respond_to do |format|
+      format.js
+    end
   end
 
   private

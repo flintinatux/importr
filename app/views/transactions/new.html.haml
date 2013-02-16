@@ -1,6 +1,0 @@
-= render layout: 'layouts/page_header', locals: { title: 'New transaction' } do
-  = link_to user_transactions_path(@user), class: "btn btn-large" do
-    %i.icon-arrow-left
-    Back to transactions
-
-= render 'transaction_form', submit_text: 'Create transaction', disable_text: 'Creating...'

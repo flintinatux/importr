@@ -6,9 +6,7 @@
     .control-group.span4
       = f.text_field :description, placeholder: 'Description (required)', class: 'span4'
     .control-group.span2
-      %select.span2
-        %option Income
-        %option Expense
+      = f.select :kind, options_from_collection_for_select(Transaction::VALID_KINDS, 'to_s', 'titlecase', @transaction.kind), {}, class: 'span2'
     .control-group.span2
       = f.text_field :amount, class: 'span2'
     .control-group.span2

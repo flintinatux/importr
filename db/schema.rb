@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(:version => 20130213222613) do
 
   create_table "transactions", :force => true do |t|
     t.date     "date",                               :null => false
+    t.string   "kind",                               :null => false
     t.integer  "amount_cents",    :default => 0,     :null => false
     t.string   "amount_currency", :default => "USD", :null => false
     t.string   "description"

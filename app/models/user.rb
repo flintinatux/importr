@@ -28,6 +28,10 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6 }
   validates :password_confirmation, presence: true
 
+  def net_profit
+    transactions.map(&:amount).inject(:+)
+  end
+
   private
 
     def create_remember_token
