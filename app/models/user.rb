@@ -28,8 +28,8 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6 }
   validates :password_confirmation, presence: true
 
-  def net_profit
-    transactions.map(&:amount).inject(:+)
+  def net_income
+    transactions.map(&:amount).inject(:+) || Money.new(0.00)
   end
 
   private

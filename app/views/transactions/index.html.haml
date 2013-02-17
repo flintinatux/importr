@@ -1,7 +1,7 @@
 = render layout: 'layouts/page_header', locals: { title: 'Transactions', small_title: "for #{@user.name}" } do
-  #net_profit
-    %span.muted Net Profit: $
-    %span{ class: (@user.net_profit > 0 ? 'positive' : 'negative') }= @user.net_profit
+  #net_income
+    %span.muted Net Income: $
+    %span{ class: (@user.net_income > 0 ? 'positive' : 'negative') }= @user.net_income
 
 - if current_user?(@user)
   #new_transaction_form

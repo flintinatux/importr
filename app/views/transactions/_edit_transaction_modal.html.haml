@@ -1,5 +1,7 @@
 .modal.hide{ id: 'edit_transaction', tabindex: '-1', 'aria-hidden' => true, 'aria-labelledby' => 'edit_transaction' }
   .modal-header
     %button.close{ 'aria-hidden' => true, data: { dismiss: :modal } } &times;
-    %h3{ id: 'edit_transaction' } Edit transaction
+    %h3{ id: 'edit_transaction' } 
+      Edit transaction
+      %span#transaction_id
   .modal-body#edit_transaction_form  

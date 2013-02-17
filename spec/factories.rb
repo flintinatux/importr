@@ -7,7 +7,7 @@ FactoryGirl.define do
   end
 
   factory :transaction do
-    sequence(:date)   { |n| Random.rand(10).days.ago }
+    sequence(:date)   { |n| Random.rand(10).days.ago.to_date }
     sequence(:amount) { |n| n.to_f }
     description 'This is just a transaction.'
     user
