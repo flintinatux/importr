@@ -6,11 +6,11 @@
         importr
       %nav.pull-right
         %ul.nav
-          %li
-            = link_to root_path do
-              %i.icon-home
-              Home
           - if signed_in?
+            %li
+              = link_to dashboard_path do
+                %i.icon-th
+                Dashboard
             %li
               = link_to user_transactions_path(current_user) do
                 %i.icon-list
@@ -31,6 +31,10 @@
                     %i.icon-off
                     Sign out
           - else
+            %li
+              = link_to root_path do
+                %i.icon-home
+                Home
             %li
               = link_to signin_path do
                 %i.icon-off

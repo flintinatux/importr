@@ -1,0 +1,19 @@
+= render layout: 'layouts/page_header', locals: { title: 'Dashboard' } do
+  #countdown
+    = image_tag 'http://placehold.it/370x40&text=countdown+to+end+of+game'
+
+.row
+  .span12
+    = image_tag 'http://placehold.it/940x360&text=net+income+over+time+comparison+(940x360)'
+.row
+  .span8
+    %h2 Player standings
+    = image_tag 'http://placehold.it/770x360&text=player+standings'
+    -#= render 'player_standings_table'
+  .span4
+    %h2.pull-right What time is it?
+    = image_tag 'http://placehold.it/370x360&text=world+clocks'
+.row
+  .span12
+    %h2 Recent transactions
+    = image_tag 'http://placehold.it/940x360&text=ten+most+recent+transactions+for+all+players'

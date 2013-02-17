@@ -1,6 +1,8 @@
 Importr::Application.routes.draw do
   root to: 'pages#home'
 
+  match '/dashboard', to: 'pages#dashboard'
+
   resources :sessions, only: [:new, :create, :destroy]
   resources :users, only: [:new, :create, :edit, :update] do
     resources :transactions, only: [:index]
