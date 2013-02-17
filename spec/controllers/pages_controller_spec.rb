@@ -22,6 +22,13 @@ describe PagesController do
   end
 
   describe 'GET #dashboard' do
-    
+    before do
+      controller_sign_in user
+      get :dashboard
+    end
+
+    it "finds all users" do
+      assigns(:users).should eq User.all
+    end
   end
 end

@@ -9,6 +9,7 @@
 #  remember_token  :string(255)
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  product         :string(255)
 #
 
 require 'spec_helper'
@@ -29,6 +30,7 @@ describe User do
   it { should respond_to :password_confirmation }
   it { should respond_to :remember_token }
   it { should respond_to :authenticate }
+  it { should respond_to :product }
   it { should respond_to :transactions }
 
   it { should be_valid }

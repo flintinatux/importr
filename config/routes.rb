@@ -4,7 +4,7 @@ Importr::Application.routes.draw do
   match '/dashboard', to: 'pages#dashboard'
 
   resources :sessions, only: [:new, :create, :destroy]
-  resources :users, only: [:new, :create, :edit, :update] do
+  resources :users, only: [:show, :new, :create, :edit, :update] do
     resources :transactions, only: [:index]
   end
   resources :transactions, except: [:new, :show]

@@ -2,6 +2,12 @@ class UsersController < ApplicationController
   before_filter :signed_in_user, only: [:edit, :update]
   before_filter :correct_user,   only: [:edit, :update]
 
+  def show
+    respond_to do |format|
+      format.js
+    end
+  end
+
   def new
     @user = User.new
   end
