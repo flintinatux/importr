@@ -1,0 +1,5 @@
+<% if @saved %>
+  Turbolinks.visit("<%= dashboard_path %>")
+<% else %>
+  $('#new_user_form').html("<%= escape_javascript render('new_user_form') %>")
+<% end %>

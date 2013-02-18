@@ -14,12 +14,12 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
-    if @user.save
+    if @saved = @user.save
       sign_in @user
       flash[:success] = "Welcome to importr, #{@user.name}!"
-      redirect_to root_path
-    else
-      render 'new'
+    end
+    respond_to do |format|
+      format.js
     end
   end
 
