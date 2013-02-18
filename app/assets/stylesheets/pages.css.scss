@@ -15,6 +15,17 @@
   }
 }
 
+.page-header {
+  #game_ends_in {
+    span.muted {
+      font-size: 25.4px;
+      font-weight: normal;
+      line-height: 40px;
+      margin-right: -15px;
+    }
+  }
+}
+
 table#player_standings {
   td {
     vertical-align: middle;

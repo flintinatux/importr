@@ -1,6 +1,7 @@
 = render layout: 'layouts/page_header', locals: { title: 'Dashboard' } do
-  #countdown
-    = image_tag 'http://placehold.it/370x40&text=countdown+to+end+of+game'
+  #game_ends_in
+    #countdown.pull-right{ data: { year: @game_end.year, month: @game_end.month, day: @game_end.day } }
+    %span.muted Game ends in:
 
 .row
   .span12

@@ -6,6 +6,7 @@ class PagesController < ApplicationController
   end
 
   def dashboard
+    @game_end = Date.new(2013, 6, 30)
     @users = User.all.sort_by(&:net_income).reverse
     @transactions = Transaction.limit(10)
   end
