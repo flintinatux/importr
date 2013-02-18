@@ -9,9 +9,6 @@ describe TransactionsController do
   before { controller_sign_in user }
 
   describe 'GET #index' do
-    let!(:transactions) do 
-      (1..4).map { FactoryGirl.create :transaction, user: user }
-    end
     before { get :index, user_id: user }
 
     it "builds a transaction for the user" do

@@ -6,7 +6,7 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    @users = User.all.sort_by(&:net_income)
+    @users = User.all.sort_by(&:net_income).reverse
     @transactions = Transaction.limit(10)
   end
 end
