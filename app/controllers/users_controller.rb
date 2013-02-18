@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_filter :signed_in_user, only: [:edit, :update]
-  before_filter :correct_user,   only: [:edit, :update]
+  before_filter :correct_user,   only: [:edit, :update, :change_password]
 
   def show
     respond_to do |format|
@@ -27,12 +27,22 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update_attributes(params[:user])
-      flash[:success] = "Settings updated."
+    if @updated = @user.update_attributes(params[:user])
       sign_in @user
-      redirect_to edit_user_path(@user)
-    else
-      render 'edit'
+      flash[:success] = "Your settings have been updated."
+    end
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def change_password
+    if @updated = @user.update_attributes(params[:user])
+      sign_in @user
+      flash[:success] = "Your password has been changed."
+    end
+    respond_to do |format|
+      format.js
     end
   end
 

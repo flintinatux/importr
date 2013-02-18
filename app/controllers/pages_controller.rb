@@ -6,6 +6,6 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    @users = User.all
+    @users = User.all.sort_by(&:net_income)
   end
 end

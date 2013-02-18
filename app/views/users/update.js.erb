@@ -1,0 +1,5 @@
+<% if @updated %>
+  Turbolinks.visit("<%= edit_user_path(@user) %>")
+<% else %>
+  $('#edit_user_form').html("<%= escape_javascript render('edit_user_form') %>")
+<% end %>

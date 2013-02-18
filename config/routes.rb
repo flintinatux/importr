@@ -5,6 +5,9 @@ Importr::Application.routes.draw do
 
   resources :sessions, only: [:new, :create, :destroy]
   resources :users, only: [:show, :new, :create, :edit, :update] do
+    # member do
+    #   put :change_password
+    # end
     resources :transactions, only: [:index]
   end
   resources :transactions, except: [:new, :show]

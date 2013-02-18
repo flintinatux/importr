@@ -25,10 +25,6 @@ describe UsersController do
       user = User.find_by_email(email)
       user.name.should eq name
     end
-
-    it "redirects to root path" do
-      response.should redirect_to(root_path)
-    end
   end
 
   context 'with an existing user' do

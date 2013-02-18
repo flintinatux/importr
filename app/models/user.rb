@@ -24,10 +24,9 @@ class User < ActiveRecord::Base
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   
   validates :name,  presence: true, length: { maximum: 50 }
-  validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },
+  validates :email, format: { with: VALID_EMAIL_REGEX, message: "Is not a valid email." },
                     uniqueness: { case_sensitive: false }
-  validates :password, length: { minimum: 6 }
-  validates :password_confirmation, presence: true
+  validates :password, length: { minimum: 6, on: :create }
 
   def net_income
     transactions.map(&:amount).inject(:+) || Money.new(0.00)

@@ -1,0 +1,22 @@
+= form_for @user, remote: true, html: { class: 'form-horizontal', id: :user } do |f|
+  = render 'shared/form_error_messages', object: @user
+  .row
+    .offset2
+      .control-group
+        = f.label :name, class: 'control-label'
+        .controls
+          = f.text_field :name, class: 'input-large', placeholder: 'Name', autofocus: true
+          = render 'shared/field_error_message', object: @user, field: :name
+      .control-group
+        = f.label :email, class: 'control-label'
+        .controls
+          = f.text_field :email, class: 'input-large', placeholder: 'Email'
+          = render 'shared/field_error_message', object: @user, field: :email
+      .control-group
+        = f.label :product, 'Current product', class: 'control-label'
+        .controls
+          = f.text_field :product, class: 'input-large', placeholder: 'Product'
+          = render 'shared/field_error_message', object: @user, field: :product
+      .control-group
+        .controls
+          = f.submit 'Update settings', class: "btn btn-primary", data: { 'disable-with' => 'Updating...' }

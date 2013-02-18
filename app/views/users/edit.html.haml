@@ -1,6 +1,7 @@
 = render 'layouts/page_header', title: 'Account settings'
 
-= render 'user_form', submit_text: 'Save changes', disable_text: 'Saving...'
+#edit_user_form
+  = render 'edit_user_form'
 
 %form.form-horizontal#gravatar
   .row
@@ -10,3 +11,6 @@
         .controls
           = gravatar_for @user
           = link_to "change", "http://gravatar.com/emails"
+
+#change_password_form
+  -#= render 'change_password_form'
