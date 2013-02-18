@@ -1,6 +1,5 @@
-- edit_path = edit_transaction_path(transaction)
-%tr{ href: edit_path }
-  %td= current_user?(@user) ? link_to(transaction.id, edit_path, remote: true) : transaction.id
+%tr{ href: edit_transaction_path(transaction) }
+  %td= transaction.id
   %td.center= transaction.date
   %td.description{ title: transaction.description }= truncate transaction.description, 80
   %td{ class: "right #{transaction.kind}" }= transaction.amount

@@ -15,4 +15,14 @@
 .row
   .span12
     %h2 Recent transactions
-    = image_tag 'http://placehold.it/940x360&text=ten+most+recent+transactions+for+all+players'
+    - if @transactions.any?
+      %table#recent_transactions.table.table-hover.table-striped
+        %thead
+          %tr
+            %th ID
+            %th.center Date
+            %th Player
+            %th Description
+            %th.right Amount
+        %tbody
+          = render partial: 'transaction', collection: @transactions

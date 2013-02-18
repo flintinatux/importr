@@ -1,0 +1,8 @@
+%tr{ href: user_path(transaction.user) }
+  %td= transaction.id
+  %td.center= transaction.date
+  %td
+    = gravatar_for transaction.user, size: 40
+    = link_to transaction.user.name, user_transactions_path(transaction.user)
+  %td.description{ title: transaction.description }= truncate transaction.description, 60
+  %td{ class: "right #{transaction.kind}" }= transaction.amount

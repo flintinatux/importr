@@ -1,21 +1,5 @@
 = render 'layouts/page_header', title: 'Sign in'
 
 .row
-  .offset2
-    = form_tag sessions_path, class: 'form-horizontal', data: { 'skip-pjax' => true } do
-      .control-group
-        = label_tag :email, nil, class: 'control-label'
-        .controls
-          = text_field_tag :email, nil, class: 'input-large', placeholder: 'Email', autofocus: true
-      .control-group
-        = label_tag :password, nil, class: 'control-label'
-        .controls
-          = password_field_tag :password, nil, class: 'input-large', placeholder: 'Password'
-      .control-group
-        .controls
-          = submit_tag "Sign in", class: "btn btn-primary"
-      .control-group
-        .controls
-          %p
-            New user?
-            = link_to "Sign up now!", signup_path
+  .offset2#sign_in_form
+    = render 'sign_in_form'

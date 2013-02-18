@@ -1,0 +1,5 @@
+<% if @authenticated %>
+  Turbolinks.visit("<%= session[:return_to] || root_path %>")
+<% else %>
+  $('#flash_messages').html("<%= escape_javascript render('shared/flash_messages') %>")
+<% end %>
