@@ -37,3 +37,17 @@ table#recent_transactions {
     vertical-align: middle;
   }
 }
+
+#world_clocks {
+  width: 300px;
+  height: 300px;
+
+  span.city {
+    font-size: 20px;
+  }
+
+  .clock {
+    font-size: 26px;
+    margin-left: 10px;
+  }
+}

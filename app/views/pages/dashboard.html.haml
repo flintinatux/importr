@@ -12,7 +12,16 @@
     = render 'player_standings_table'
   .span4
     %h2.pull-right What time is it?
-    = image_tag 'http://placehold.it/370x360&text=world+clocks'
+    #world_clocks.pull-right.right
+      %p
+        %span.city.muted Beijing:
+        %span#beijing.clock 00:00 AM
+      %p
+        %span.city.muted New Delhi:
+        %span#new_delhi.clock 00:00 AM
+      %p
+        %span.city.muted London:
+        %span#london.clock 00:00 AM
 .row
   .span12
     %h2 Recent transactions
