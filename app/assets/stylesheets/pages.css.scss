@@ -38,16 +38,23 @@ table#recent_transactions {
   }
 }
 
+h2#adventure_time a {
+  color: #333;
+}
+
 #world_clocks {
   width: 300px;
-  height: 300px;
 
-  span.city {
-    font-size: 20px;
-  }
+  p {
+    margin: 0 0 13px;
 
-  .clock {
-    font-size: 26px;
-    margin-left: 10px;
+    span.city {
+      font-size: 20px;
+    }
+
+    .clock {
+      font-size: 26px;
+      margin-left: 10px;
+    }
   }
 }

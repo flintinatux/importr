@@ -11,7 +11,7 @@
     %h2 Player standings
     = render 'player_standings_table'
   .span4
-    %h2.pull-right What time is it?
+    %h2#adventure_time.pull-right= link_to 'What time is it?', 'https://www.youtube.com/watch?v=A7Jvk6__23I'
     #world_clocks.pull-right.right
       %p
         %span.city.muted Beijing:
@@ -22,6 +22,12 @@
       %p
         %span.city.muted London:
         %span#london.clock 00:00 AM
+      %p
+        %span.city.muted Atlanta:
+        %span#atlanta.clock 00:00 AM
+      %p
+        %span.city.muted Los Angeles:
+        %span#los_angeles.clock 00:00 AM
 .row
   .span12
     %h2 Recent transactions
