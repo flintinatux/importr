@@ -38,8 +38,12 @@ table#recent_transactions {
   }
 }
 
-h2#adventure_time a {
-  color: #333;
+h2#adventure_time {
+  margin: 10px 0 16px 0;
+
+  a {
+    color: #333;
+  }
 }
 
 #world_clocks {
