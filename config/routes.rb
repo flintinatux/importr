@@ -9,6 +9,9 @@ Importr::Application.routes.draw do
     #   put :change_password
     # end
     resources :transactions, only: [:index]
+    collection do
+      get :net_income_series
+    end
   end
   resources :transactions, except: [:new, :show]
 

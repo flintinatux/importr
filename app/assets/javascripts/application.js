@@ -15,5 +15,7 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require bootstrap-datepicker/core
+//= require jquery.countdown.min
+//= require highstock
 //= require turbolinks
 //= require_tree .

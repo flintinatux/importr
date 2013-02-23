@@ -32,9 +32,35 @@ class User < ActiveRecord::Base
     transactions.map(&:amount).inject(:+) || Money.new(0.00)
   end
 
+  def net_income_series
+    net_income_each_day.sort.inject([start_point]) do |series, day|
+      net_income = (series.last[1] + day[1]).round(2)
+      series << [day[0], net_income]
+      series
+    end
+  end
+
   private
 
     def create_remember_token
       self.remember_token = SecureRandom.urlsafe_base64
+    end
+
+    def date_in_ms(date)
+      date.strftime('%s').to_i * 1000
+    end
+
+    def net_income_each_day
+      transactions.inject({}) do |net_income, transaction|
+        day = date_in_ms(transaction.date)
+        net_income[day] ||= 0.00
+        net_income[day] += transaction.amount.to_f
+        net_income
+      end
+    end
+
+    def start_point
+      start_date = Date.new(2013, 2, 1)
+      [date_in_ms(start_date), 0.00]
     end
 end

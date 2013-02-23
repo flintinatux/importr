@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :signed_in_user, only: [:edit, :update]
+  before_filter :signed_in_user, only: [:edit, :update, :net_income_series]
   before_filter :correct_user,   only: [:edit, :update, :change_password]
 
   def show
@@ -43,6 +43,15 @@ class UsersController < ApplicationController
     end
     respond_to do |format|
       format.js
+    end
+  end
+
+  def net_income_series
+    series = User.all.map do |user|
+      { name: user.name, data: user.net_income_series }
+    end
+    respond_to do |format|
+      format.json { render json: MultiJson.dump(series) }
     end
   end
 
