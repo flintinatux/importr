@@ -3,7 +3,7 @@ require 'spec_helper'
 describe TransactionsController do
   let(:user) { FactoryGirl.create :user }
   let!(:transactions) do 
-    (1..4).map { FactoryGirl.create :transaction, user: user }
+    (1..4).map { |n| FactoryGirl.create :transaction, user: user, date: n.days.from_now }
   end
 
   before { controller_sign_in user }
@@ -24,7 +24,7 @@ describe TransactionsController do
     context "with valid attributes" do
       it "creates a new transaction" do
         expect do
-          post :create, transaction: FactoryGirl.attributes_for(:transaction)
+          post :create, format: :js, transaction: FactoryGirl.attributes_for(:transaction)
         end.to change(Transaction, :count).by(1)
       end
     end
@@ -32,7 +32,7 @@ describe TransactionsController do
     context "with invalid attributes" do
       it "doesn't create a new transaction" do
         expect do
-          post :create, transaction: FactoryGirl.attributes_for(:invalid_transaction)
+          post :create, format: :js, transaction: FactoryGirl.attributes_for(:invalid_transaction)
         end.to_not change(Transaction, :count)
       end
     end
@@ -54,7 +54,7 @@ describe TransactionsController do
     describe 'PUT #update' do
       let(:new_amount)  { 1234.56 }
       before do
-        put :update, id: transaction, transaction: FactoryGirl.attributes_for(:transaction, amount: new_amount)
+        put :update, format: :js, id: transaction, transaction: FactoryGirl.attributes_for(:transaction, amount: new_amount)
       end
 
       it "find the transaction" do

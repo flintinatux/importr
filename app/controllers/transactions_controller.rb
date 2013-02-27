@@ -14,9 +14,6 @@ class TransactionsController < ApplicationController
     if @saved = @transaction.save
       flash[:success] = "New transaction ##{@transaction.id} created."
     end
-    respond_to do |format|
-      format.js
-    end
   end
 
   def edit
@@ -25,9 +22,6 @@ class TransactionsController < ApplicationController
   def update
     if @updated = @transaction.update_attributes(params[:transaction])
       flash[:success] = "Transaction ##{@transaction.id} updated."
-    end
-    respond_to do |format|
-      format.js
     end
   end
 

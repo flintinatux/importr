@@ -18,7 +18,7 @@ describe UsersController do
     
   describe 'POST #create' do
     before :each do
-      post :create, user: { name: name, email: email, password: password, password_confirmation: password }
+      post :create, format: :js, user: { name: name, email: email, password: password, password_confirmation: password }
     end
 
     it "creates a new user" do
@@ -48,7 +48,7 @@ describe UsersController do
       describe 'PUT #update' do
         let(:new_name) { 'Jane Doe' }
         before :each do
-          put :update, id: user.id, user: { name: new_name, email: email, 
+          put :update, format: :js, id: user.id, user: { name: new_name, email: email, 
                                             password: password, password_confirmation: password }
         end
 

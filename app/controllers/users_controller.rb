@@ -18,9 +18,6 @@ class UsersController < ApplicationController
       sign_in @user
       flash[:success] = "Welcome to importr, #{@user.name}!"
     end
-    respond_to do |format|
-      format.js
-    end
   end
 
   def edit
@@ -31,18 +28,12 @@ class UsersController < ApplicationController
       sign_in @user
       flash[:success] = "Your settings have been updated."
     end
-    respond_to do |format|
-      format.js
-    end
   end
 
   def change_password
     if @updated = @user.update_attributes(params[:user])
       sign_in @user
       flash[:success] = "Your password has been changed."
-    end
-    respond_to do |format|
-      format.js
     end
   end
 
