@@ -45,3 +45,8 @@ test:
   pool: 5
   username: importr
   password: importr
+
+postgres:
+  adapter: postgresql
+  database: importr_test
+  username: postgres
