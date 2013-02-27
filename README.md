@@ -1,4 +1,4 @@
-# importr [![Build Status](https://travis-ci.org/flintinatux/importr].png)](https://travis-ci.org/flintinatux/importr) [![Code Climate](https://codeclimate.com/github/flintinatux/importr.png)](https://codeclimate.com/github/flintinatux/importr)
+# importr [![Build Status](https://travis-ci.org/flintinatux/importr.png)](https://travis-ci.org/flintinatux/importr) [![Code Climate](https://codeclimate.com/github/flintinatux/importr.png)](https://codeclimate.com/github/flintinatux/importr)
 
 Rails app to track our progress in the import arbitrage business!
 
