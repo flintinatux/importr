@@ -1,4 +1,4 @@
-# importr
+# importr [![Code Climate](https://codeclimate.com/github/flintinatux/importr.png)](https://codeclimate.com/github/flintinatux/importr) 
 
 Rails app to track our progress in the import arbitrage business!
 
@@ -11,7 +11,7 @@ Clone this repo, and then run:
 > bundle exec rails s
 ```
 
-Then you should be in business. Or if your friend started up a server, go join his or her game.
+Then you should be in business. Or host it on heroku, which is what I do. Or if your friend started up a server, go join his or her game.
 
 ## Contributing
 

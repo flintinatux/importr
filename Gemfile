@@ -36,6 +36,7 @@ end
 
 group :test do
   gem 'capybara', '~> 2.0.2'
+  # gem 'capybara-webkit', '~> 0.14.2'
   gem 'factory_girl_rails', '~> 4.2.1'
   gem 'guard-spork', '~> 1.4.2'
   gem 'libnotify', '~> 0.8.0'
