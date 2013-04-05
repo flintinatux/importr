@@ -10,10 +10,11 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  product         :string(255)
+#  campfire_token  :string(255)
 #
 
 class User < ActiveRecord::Base
-  attr_accessible :email, :name, :product, :password, :password_confirmation
+  attr_accessible :campfire_token, :email, :name, :product, :password, :password_confirmation
   has_secure_password
 
   has_many :transactions, dependent: :destroy

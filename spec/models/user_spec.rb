@@ -10,6 +10,7 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  product         :string(255)
+#  campfire_token  :string(255)
 #
 
 require 'spec_helper'

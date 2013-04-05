@@ -18,5 +18,13 @@
           = f.text_field :product, class: 'input-large', placeholder: 'Product'
           = render 'shared/field_error_message', object: @user, field: :product
       .control-group
+        = f.label :campfire_token, 'Campfire token', class: 'control-label'
+        .controls
+          = f.text_field :campfire_token, class: 'input-large', placeholder: 'Campfire token'
+          = render 'shared/field_error_message', object: @user, field: :campfire_token
+          %span.help-block
+            Copy API token from your
+            = link_to 'Campfire user settings page', 'https://bquadrant.campfirenow.com/member/edit', target: '_blank'
+      .control-group
         .controls
           = f.submit 'Update settings', class: "btn btn-primary", data: { 'disable-with' => 'Updating...' }

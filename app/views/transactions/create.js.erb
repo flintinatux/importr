@@ -1,5 +1,5 @@
 <% if @saved %>
-  Turbolinks.visit("<%= user_transactions_path(current_user) %>")
+  Turbolinks.visit("<%= escape_javascript user_transactions_path(current_user) %>")
 <% else %>
   $('#new_transaction_form').html("<%= escape_javascript render('transaction_form') %>")
 <% end %>

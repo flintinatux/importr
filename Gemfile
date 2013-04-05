@@ -1,11 +1,12 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.12'
+gem 'rails', '3.2.13'
 
 # Backend
 gem 'bcrypt-ruby', '~> 3.0.1'
 gem 'money-rails', git: 'git://github.com/RubyMoney/money-rails.git'
 gem 'pg', '~> 0.14.1'
+gem 'tinder'
 
 # Frontend
 gem 'bootstrap-datepicker-rails', '~> 0.6.39'
